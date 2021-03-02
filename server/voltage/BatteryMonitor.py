@@ -1,22 +1,48 @@
 import serial
 import time
 import sys
+
 class BatteryMonitor(object):
+
+    self.timeout = 10
+    self.last_check_time = time.time()
+
     def __init__(self, port="/dev/ttyACM0", cutoff=3):
         self.port = port
         self.cutoff = cutoff
 
+    """
+        When in Donkey, this function is executed every few iterations.
+    """
     def run(self):
-        voltages = adjusted_voltages()
-        print('Cell 0: {}\tCell 1: {}\tCell 2: {}'.format(voltages[0], voltages[1], voltages[2]))
+        if time.time() - self.timeout > self.last_check_time:
+            voltages, danger = adjusted_voltages()
+            if danger:
+                print('One of the cells is dangerously low!')
+            print('Cell 0: {}\tCell 1: {}\tCell 2: {}'.format(voltages[0], voltages[1], voltages[2]))
+            self.last_check_time = time.time()
 
+
+    """
+        Adjusted Voltages are the voltages obtained by subtracting the highest from the second highest,
+        and the second highest from the first highest
+    """
     def adjusted_voltages(self):
-        voltages = [round(float(v), 2) for v in self.reading().split(',')
-        return [voltages[0],voltages[1] - voltages[0],voltages[2] - voltages[1]]
+        try:
+            voltages = [round(float(v), 2) for v in self.reading().split(',')]
+        except:
+            # probably the reading was incorrect
+            return []
+        danger_readings = [voltage < self.cutoff for voltage in voltages]
+        danger = True in danger_readings:
+        return [voltages[0],voltages[1] - voltages[0],voltages[2] - voltages[1]], danger
 
 
-    def reading(port=DEFAULT_PORT):
-        with serial.Serial(port) as ser:
+    """
+        Just the straight serial reading, as a string
+    """
+    def reading(self):
+        with serial.Serial(self.port) as ser:
             line = []
             while True:
                 try:
@@ -28,21 +54,6 @@ class BatteryMonitor(object):
                         return voltages
                 except:
                     return ''
-
-    def condense(line):
-        if len(line) <= 0:
-            return []
-        nums = []
-        current = ''
-        for char in line:
-            if char != ',' and char != '\n':
-                current += char
-            else:
-                nums.append(float(current))
-                current = ''
-        if current != '':
-            nums.append(float(current, ))
-        return nums
 
 if __name__ == '__main__':
     if len(sys.argv) > 0:
