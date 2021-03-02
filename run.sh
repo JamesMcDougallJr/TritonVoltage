@@ -1,3 +1,7 @@
+
+echo "Starting Clock at 2s"
+python3 ~/TritonVoltage/server/voltage/clock.py 2 &> /dev/null &
+
 echo "Flashing Teensy"
 #https://github.com/PaulStoffregen/teensy_loader_cli
 ./teensy_loader/teensy_loader_cli --mcu=mk20dx256 -w ./Teensy/teensy-test.ino.TEENSY32.hex -v # only for teensy 3.2
