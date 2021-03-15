@@ -9,8 +9,15 @@ plot = viz.line(
     Y = np.array([0, 0]),
     env='main',
     opts=dict(
-        legend=['Cell 1 Voltage', 'Cell 2 Voltage', 'Cell 3 Voltage'],
-        title='Triton Voltages'
+        legend       = ['Cell Voltage (4V)', 'Cell Voltage (8V)', 'Cell Voltage(12V)'],
+        title        = 'Triton Voltages (LIPO Battery)',
+        xlabel       = 'Time (seconds)',
+        ylabel       = 'Voltage (V)',
+        marginleft   = 30,
+        marginright  = 30,
+        marginbottom = 80,
+        margintop    = 30, 
+        showgrid     = True       
     )
 )
 
