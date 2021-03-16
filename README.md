@@ -3,13 +3,14 @@
 Triton Voltage starts a flask server that reads serial data from an arduino representing the voltages of three cells in a lithium ion battery.
 
 To build the circuit, you need the following materials:
-    1. One Lithium Ion Battery, with 4 pins - three voltage pins, 1 ground. Currently the circuit is designed for a 12v LIPO.
-    2. One Jetson Nano
-    3. One Teensy v3.2
-    4. Male to Female and Female to Female Wires
-    5. Wire Cutters
-    6. One PCB design board (or a breadboard if you have no other options)
 
+    1. One Lithium Ion Battery, with 4 pins - three voltage pins, 1 ground. Currently the circuit is designed for a 12v LIPO.
+    3. One Jetson Nano
+    4. One Teensy v3.2
+    5. Male to Female and Female to Female Wires
+    6. Wire Cutters
+    7. One PCB design board (or a breadboard if you have no other options)
+   
 Looking at the battery, do the following:
     1. Use a multimeter, put the ground into the black wire on the LiPo testing port.
     2. Put the red wire into each of the ports for a few seconds so you can see the voltages.
@@ -24,7 +25,6 @@ To build the circuit, do the following:
     6. Hot glue the jumper wires so they don't break off.
     7. Connect the jumper wires to the battery and test voltages using a multimeter. 
     8. Mark the channels with a marker or a label so you know which channel goes to which part of the battery.
-    9. 
 
 Install Required Software
     1. Look at install.s. This should work but assumes some paths.
