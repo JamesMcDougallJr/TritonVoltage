@@ -19,7 +19,7 @@ import os
 import time
 from docopt import docopt
 import numpy as np
-import BatteryMonitor # added by battmon team
+import BatteryMonitor as bm # added by battmon team
 import donkeycar as dk
 
 #import parts
@@ -245,7 +245,11 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
     rec_tracker_part = RecordTracker()
     V.add(rec_tracker_part, inputs=["tub/num_records"], outputs=['records/alert'])
 
-    V.add(BatteryMonitor())
+    # added by battmon team.
+    if cfg.VOLTAGE_CUTOFF:
+        V.add(bm.BatteryMonitor(cutoff=cfg.VOLTAGE_CUTOFF))
+    else:
+        V.add(bm.BatteryMonitor())
 
     if cfg.AUTO_RECORD_ON_THROTTLE and isinstance(ctr, JoystickController):
         #then we are not using the circle button. hijack that to force a record count indication

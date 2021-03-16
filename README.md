@@ -26,3 +26,6 @@ Run the program
     5. Then the flask server starts to serve the voltage. You can also visit it in the browser at port 5000 if you tunnel in.
     6. Start the visdom server. You must be tunneled in for this to work.
     7. Start the visdom publisher, which grabs data from the voltage server and publishes it to the visdom server in the right format.
+
+Donkeycar Setup
+    1. In the serv

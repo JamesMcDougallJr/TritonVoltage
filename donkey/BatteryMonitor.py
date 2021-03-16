@@ -8,7 +8,7 @@ class BatteryMonitor(object):
     def __init__(self, port="/dev/ttyACM0", cutoff=3):
         self.port = port
         self.cutoff = cutoff
-        self.sims = [random.uniform(3,4), random.uniform(7,8), random.uniform(11,12)]
+        self.sims = [random.uniform(3,4) for _ in range(3)]
         self.alpha = -0.001
         self.last_check_time = time.time()
         self.timeout = 10
