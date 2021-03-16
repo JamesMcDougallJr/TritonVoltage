@@ -2,6 +2,9 @@
 
 Triton Voltage starts a flask server that reads serial data from an arduino representing the voltages of three cells in a lithium ion battery.
 
+[Electrical Diagram.pdf](https://github.com/JamesMcDougallJr/TritonVoltage/files/6152452/Electrical.Diagram.pdf)
+
+
 To build the circuit, you need the following materials:
 
     1. One Lithium Ion Battery, with 4 pins - three voltage pins, 1 ground. Currently the circuit is designed for a 12v LIPO.
@@ -30,9 +33,9 @@ To build the circuit, do the following:
 
 Install Required Software
 
-    1. Look at install.s. This should work but assumes some paths.
+    1. Look at install.sh. This should work but assumes some paths.
     2. Change the path ~/projects/d3/ to your own donkey d3 or d3_sim path.
-    3. Run ``pip install -r requirements.txt``
+    3. Run `pip install -r requirements.txt`
 
 Setup Your Environment
 
