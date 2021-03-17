@@ -36,6 +36,7 @@ Install Required Software
     1. Look at install.sh. This should work but assumes some paths.
     2. Change the path ~/projects/d3/ to your own donkey d3 or d3_sim path.
     3. Run `pip install -r requirements.txt`
+    4. Follow these instructions: https://tojaj.com/how-to-turn-off-a-linux-system-without-root-or-sudo/ to enable donkey to shutoff when the battery gets too low.
 
 Setup Your Environment
 
