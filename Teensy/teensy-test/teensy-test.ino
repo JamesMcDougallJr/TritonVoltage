@@ -1,5 +1,5 @@
 //Macros
-#define TEST_MODE               1     // If test mode is enable then pin-3 simulates the jetson nano wake up signal
+#define TEST_MODE               0   // If test mode is enable then pin-3 simulates the jetson nano wake up signal
 #if TEST_MODE
   #define WAKE_UP_SIGNAL_PIN    6
   #define TEST_DELAY            5*1000        // 2 seconds
